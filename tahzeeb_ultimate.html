@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Tahzeeb Shah | AI Engineer | Machine Learning Engineer | Mathematician | Algorithm Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#02060e;--bg2:#03080f;--bg3:#040a12;
+  --card:#080f1c;--card2:#0b1422;--card3:#0d1828;
+  --border:rgba(56,139,253,0.1);--border2:rgba(56,139,253,0.22);--border3:rgba(56,139,253,0.38);
+  --blue:#388bfd;--blue2:#58a6ff;--blue3:#79c0ff;--blue4:#cae8ff;
+  --cyan:#39d5d5;--cyan2:#56e0e0;--cyan3:#a5f3f3;
+  --purple:#a371f7;--purple2:#bc8cff;--purple3:#d2b3ff;
+  --green:#3fb950;--green2:#56d364;--green3:#9be9a8;
+  --gold:#e3b341;--gold2:#f0c060;--gold3:#ffd88a;
+  --red:#ff7b72;--orange:#ffa657;--teal:#4dd6c8;--indigo:#a5a8ff;
+  --text:#e6edf3;--text2:#8b949e;--text3:#484f58;--text4:#21262d;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--blue),var(--cyan));border-radius:2px}
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;padding:0 4%;display:flex;align-items:center;justify-content:space-between;background:rgba(2,6,14,0.82);backdrop-filter:blur(28px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:9px}
+.nav-logo-box{width:30px;height:30px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:#fff}
+.nav-logo-text{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text2)}.nav-logo-text span{color:var(--blue2)}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--text2);text-decoration:none;padding:5px 11px;border-radius:5px;transition:all 0.2s;font-family:'JetBrains Mono',monospace}
+.nav-links a:hover,.nav-links a.active{color:var(--blue2);background:rgba(56,139,253,0.08)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-status{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--green2);font-family:'JetBrains Mono',monospace}
+.ndot{width:6px;height:6px;border-radius:50%;background:var(--green2);animation:ndotpulse 2s infinite}
+@keyframes ndotpulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(63,185,80,.5)}50%{opacity:.7;box-shadow:0 0 0 5px transparent}}
+.nav-hire{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.nav-hire:hover{opacity:.85;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:78px 4% 60px;position:relative;z-index:1}
+.hero-inner{max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 430px;gap:72px;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(56,139,253,0.07);border:1px solid rgba(56,139,253,0.18);padding:5px 14px;border-radius:20px;margin-bottom:24px}
+.htdot{width:6px;height:6px;border-radius:50%;background:var(--green2);animation:ndotpulse 2s infinite}
+.htxt{font-size:11px;font-weight:600;color:var(--blue3);letter-spacing:1.2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,5.8vw,76px);font-weight:800;line-height:.95;letter-spacing:-2px;margin-bottom:18px}
+.h1-n1{display:block;color:var(--text)}
+.h1-n2{display:block;background:linear-gradient(90deg,var(--blue2),var(--cyan2),var(--purple2),var(--blue3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:300%;animation:grad 6s linear infinite}
+@keyframes grad{0%{background-position:0%}100%{background-position:300%}}
+.hero-typed{font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--cyan2);margin-bottom:22px;min-height:28px;display:flex;align-items:center;gap:6px}
+.tprefix{color:var(--text3)}
+.tcursor{display:inline-block;width:10px;height:20px;background:var(--cyan2);border-radius:2px;animation:tblink 1s infinite;vertical-align:middle;margin-left:2px}
+@keyframes tblink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-desc{font-size:15px;color:var(--text2);line-height:1.85;max-width:580px;margin-bottom:32px}
+.hero-desc strong{color:var(--text)}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.cta-a{display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .3s}
+.cta-a:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(56,139,253,.4)}
+.cta-b{display:flex;align-items:center;gap:7px;background:rgba(56,139,253,.06);border:1px solid var(--border2);color:var(--text);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:all .3s}
+.cta-b:hover{background:rgba(56,139,253,.12);border-color:var(--border3)}
+.hero-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.hmet{background:rgba(8,15,28,.9);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;transition:border-color .2s}
+.hmet:hover{border-color:var(--border2)}
+.hmet-n{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--blue2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.hmet-l{font-size:10px;color:var(--text2);margin-top:4px;letter-spacing:.3px}
+
+/* TERMINAL */
+.terminal{background:#0d1117;border:1px solid var(--border2);border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 60px rgba(56,139,253,.04)}
+.tbar{background:#161b22;padding:11px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
+.tdot{width:11px;height:11px;border-radius:50%}.td1{background:#ff5f57}.td2{background:#ffbd2e}.td3{background:#28c840}
+.ttitle{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);margin:0 auto}
+.tbody{padding:18px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.75}
+.tl{display:flex;gap:8px;flex-wrap:wrap}.tp{color:var(--green2)}.tc{color:var(--text2)}
+.tk{color:var(--blue3)}.tv{color:var(--cyan2)}.ts{color:var(--gold)}.tcm{color:var(--text3)}.tnum{color:var(--purple2)}.tok{color:var(--green2)}.tgap{height:7px}
+
+/* SECTIONS */
+.section{padding:88px 4%;position:relative;z-index:1}
+.si{max-width:1320px;margin:0 auto}
+.sh{margin-bottom:52px}
+.sew{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.snum{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3)}
+.sline{width:36px;height:1px;background:linear-gradient(90deg,var(--blue),transparent)}
+.stag{font-size:10px;font-weight:600;color:var(--blue3);letter-spacing:2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.stitle{font-family:'Syne',sans-serif;font-size:clamp(30px,3.8vw,50px);font-weight:800;color:var(--text);letter-spacing:-1px;line-height:1.1;margin-bottom:12px}
+.ssub{font-size:15px;color:var(--text2);max-width:580px;line-height:1.75}
+
+/* ABOUT */
+.about-sec{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:68px;align-items:start}
+.atext p{font-size:14.5px;color:var(--text2);line-height:1.9;margin-bottom:16px}
+.atext strong{color:var(--text);font-weight:600}
+.codeblock{background:#0d1117;border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin:22px 0;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.8}
+.cbr{display:flex;gap:14px}.cbn{color:var(--text4);min-width:14px;text-align:right;user-select:none;font-size:11px}
+.cbkw{color:var(--purple2)}.cbfn{color:var(--blue3)}.cbst{color:var(--gold)}.cbcm{color:var(--text3)}.cbv{color:var(--cyan2)}
+.achips{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.chip{display:flex;align-items:center;gap:6px;background:rgba(8,15,28,.9);border:1px solid var(--border);border-radius:7px;padding:7px 13px;font-size:12px;font-weight:500;color:var(--text);transition:all .2s}
+.chip:hover{border-color:var(--border2);background:rgba(56,139,253,.06)}
+.edu-stack{display:flex;flex-direction:column;gap:12px}
+.edu-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 22px;position:relative;overflow:hidden;transition:all .3s}
+.edu-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px}
+.edu-item.ep::before{background:linear-gradient(180deg,var(--blue),var(--cyan))}
+.edu-item.es::before{background:linear-gradient(180deg,var(--purple),var(--blue))}
+.edu-item.et::before{background:linear-gradient(180deg,var(--gold),var(--orange))}
+.edu-item:hover{border-color:var(--border2);transform:translateX(5px)}
+.ebadge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.eb1{background:rgba(56,139,253,.1);color:var(--blue3);border:1px solid rgba(56,139,253,.2)}
+.eb2{background:rgba(163,113,247,.1);color:var(--purple2);border:1px solid rgba(163,113,247,.2)}
+.eb3{background:rgba(227,179,65,.1);color:var(--gold2);border:1px solid rgba(227,179,65,.2)}
+.edu-item h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:3px}
+.edu-uni{font-size:12px;color:var(--text2);margin-bottom:10px}
+.etags{display:flex;flex-wrap:wrap;gap:4px}
+.etag2{font-size:10px;background:rgba(56,139,253,.07);border:1px solid rgba(56,139,253,.15);color:var(--blue3);padding:2px 8px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+
+/* SKILLS */
+.skills-bg{background:var(--bg2)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s;position:relative;overflow:hidden;cursor:default}
+.skcard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.skcard::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,var(--sglow,rgba(56,139,253,.05)),transparent 65%);pointer-events:none}
+.skhdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.skico{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.skpct{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3)}
+.skcard h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px}
+.skcard p{font-size:11px;color:var(--text2);line-height:1.55;margin-bottom:10px}
+.sktags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:10px}
+.skt{font-size:9px;font-weight:500;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--text2);font-family:'JetBrains Mono',monospace}
+.skbar{height:2px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-top:2px}
+.skfill{height:100%;border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+
+/* PROJECTS */
+.proj-bg{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .35s;position:relative}
+.pcard:hover{border-color:var(--border2);transform:translateY(-7px);box-shadow:0 22px 56px rgba(0,0,0,.55)}
+.pvis{height:110px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pvis-icon{font-size:38px;position:relative;z-index:2;filter:drop-shadow(0 0 16px currentColor)}
+.pgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,139,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(56,139,253,.05) 1px,transparent 1px);background-size:18px 18px}
+.pglow{position:absolute;width:80px;height:80px;border-radius:50%;filter:blur(28px);opacity:.35}
+.pbadge{position:absolute;top:9px;left:9px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;padding:2px 7px;border-radius:3px;z-index:3;text-transform:uppercase;letter-spacing:.8px}
+.pb-b{background:rgba(56,139,253,.2);color:var(--blue3);border:1px solid rgba(56,139,253,.3)}
+.pb-r{background:rgba(255,123,114,.2);color:#ff9d97;border:1px solid rgba(255,123,114,.3)}
+.pb-g{background:rgba(63,185,80,.2);color:var(--green2);border:1px solid rgba(63,185,80,.3)}
+.pb-o{background:rgba(255,166,87,.2);color:#ffb87a;border:1px solid rgba(255,166,87,.3)}
+.pb-p{background:rgba(163,113,247,.2);color:var(--purple2);border:1px solid rgba(163,113,247,.3)}
+.pb-c{background:rgba(57,213,213,.2);color:var(--cyan2);border:1px solid rgba(57,213,213,.3)}
+.pb-go{background:rgba(227,179,65,.2);color:var(--gold2);border:1px solid rgba(227,179,65,.3)}
+.pb-t{background:rgba(20,184,166,.2);color:var(--teal);border:1px solid rgba(20,184,166,.3)}
+.pb-i{background:rgba(99,102,241,.2);color:var(--indigo);border:1px solid rgba(99,102,241,.3)}
+.pb-gr{background:rgba(56,139,253,.15);color:var(--blue3);border:1px solid rgba(56,139,253,.25)}
+.pb-rd{background:rgba(255,123,114,.15);color:#ff9d97;border:1px solid rgba(255,123,114,.25)}
+.pb-tl{background:rgba(20,184,166,.15);color:var(--teal);border:1px solid rgba(20,184,166,.25)}
+.pv1{background:linear-gradient(135deg,#061020,#0d2040)}.pv2{background:linear-gradient(135deg,#1a0808,#2e1010)}
+.pv3{background:linear-gradient(135deg,#081a0e,#102a18)}.pv4{background:linear-gradient(135deg,#1a1200,#2e2000)}
+.pv5{background:linear-gradient(135deg,#120828,#200e40)}.pv6{background:linear-gradient(135deg,#081a1a,#102828)}
+.pv7{background:linear-gradient(135deg,#1a0e00,#2a1800)}.pv8{background:linear-gradient(135deg,#081820,#0e2430)}
+.pv9{background:linear-gradient(135deg,#100820,#1c1030)}.pv10{background:linear-gradient(135deg,#001820,#003040)}
+.pv11{background:linear-gradient(135deg,#1c0808,#300e0e)}.pv12{background:linear-gradient(135deg,#080820,#101030)}
+.pbody{padding:14px}
+.pcat{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;font-family:'JetBrains Mono',monospace}
+.pcard h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3}
+.pcard p{font-size:11px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.pstack{display:flex;flex-wrap:wrap;gap:3px}
+.pst{font-size:9px;font-weight:500;padding:2px 7px;border-radius:3px;background:rgba(56,139,253,.07);border:1px solid rgba(56,139,253,.15);color:var(--blue3);font-family:'JetBrains Mono',monospace}
+
+/* GITHUB REPOS */
+.repo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.repo-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s;position:relative;overflow:hidden}
+.repo-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.repo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+.repo-icon{font-size:22px;margin-bottom:10px}
+.repo-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--blue2);margin-bottom:6px}
+.repo-desc{font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:12px}
+.repo-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.repo-lang{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace}
+.rlang-dot{width:10px;height:10px;border-radius:50%}
+.repo-star{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:4px}
+
+/* STATS */
+.stats-band{padding:44px 4%;z-index:1;position:relative;background:var(--bg)}
+.stats-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.stitem{background:var(--card);padding:28px;text-align:center;border:1px solid var(--border);transition:all .3s}
+.stitem:first-child{border-radius:12px 0 0 12px}.stitem:last-child{border-radius:0 12px 12px 0}
+.stitem:hover{background:var(--card2);border-color:var(--border2)}
+.stbig{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--blue2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stlabel{font-size:12px;color:var(--text2);margin-top:7px;font-weight:500}
+.stsub{font-size:10px;color:var(--text3);margin-top:2px;font-family:'JetBrains Mono',monospace}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.svccard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;transition:all .3s;position:relative;overflow:hidden}
+.svccard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.svccard::before{content:attr(data-n);position:absolute;top:-4px;right:12px;font-family:'Syne',sans-serif;font-size:64px;font-weight:800;color:rgba(255,255,255,.02);line-height:1;pointer-events:none}
+.svctop{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+.svcico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.svcarr{width:26px;height:26px;border-radius:6px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:13px;transition:all .2s}
+.svccard:hover .svcarr{background:var(--blue);border-color:var(--blue);color:#fff}
+.svccard h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px}
+.svccard p{font-size:12px;color:var(--text2);line-height:1.65}
+
+/* CONTACT */
+.contact-bg{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
+.cleft h3{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--text);margin-bottom:14px;line-height:1.2}
+.cleft p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:30px}
+.clinks{display:flex;flex-direction:column;gap:9px}
+.clink{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 16px;text-decoration:none;transition:all .25s}
+.clink:hover{border-color:var(--border2);background:var(--card2);transform:translateX(4px)}
+.clinkico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.clinklabel{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;font-family:'JetBrains Mono',monospace;margin-bottom:2px}
+.clinkval{font-size:13px;font-weight:500;color:var(--text)}
+.cform{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:10px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px;font-family:'JetBrains Mono',monospace}
+.fg input,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:7px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s}
+.fg input:focus,.fg textarea:focus{border-color:var(--border3);background:rgba(56,139,253,.03)}
+.fg textarea{min-height:90px;resize:vertical}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text3)}
+.sbtn{width:100%;background:linear-gradient(135deg,var(--blue),var(--cyan));border:none;color:#fff;padding:12px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:7px}
+.sbtn:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(56,139,253,.35)}
+
+/* FOOTER */
+footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;position:relative;z-index:1}
+.footer-in{max-width:1320px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.flogo{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text2)}.flogo span{color:var(--blue2)}
+.fcopy{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;text-align:center}
+.flinks{display:flex;gap:14px}
+.flinks a{font-size:11px;color:var(--text3);text-decoration:none;font-family:'JetBrains Mono',monospace;transition:color .2s}
+.flinks a:hover{color:var(--blue2)}
+
+/* DIVIDER */
+.div{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 4%;position:relative;z-index:1}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rvl{opacity:0;transform:translateX(-24px);transition:opacity .65s ease,transform .65s ease}
+.rvr{opacity:0;transform:translateX(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.on,.rvl.on,.rvr.on{opacity:1;transform:none}
+
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr}.hero-right{display:none}
+  .proj-grid{grid-template-columns:repeat(3,1fr)}.repo-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-grid{grid-template-columns:repeat(3,1fr)}.svc-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-inner{grid-template-columns:repeat(3,1fr)}.about-grid,.contact-grid{grid-template-columns:1fr}
+  .stitem:first-child{border-radius:12px 0 0 0}.stitem:last-child{border-radius:0 0 0 0}
+}
+@media(max-width:768px){
+  .nav-links{display:none}.skills-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}.stats-inner{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:1fr 1fr}.hero-metrics{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+  .proj-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}.svc-grid{grid-template-columns:1fr}
+  .repo-grid{grid-template-columns:1fr}.stats-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-box">MTS</div>
+    <div class="nav-logo-text"><span>tahzeeb</span>.dev</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#repos">github</a></li>
+    <li><a href="#services">services</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-status"><div class="ndot"></div>available</div>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag rv">
+        <div class="htdot"></div>
+        <span class="htxt">BS Mathematics · AI Engineer · Pakistan 🇵🇰</span>
+      </div>
+      <h1 class="rv">
+        <span class="h1-n1">Muhammad</span>
+        <span class="h1-n2">Tahzeeb Shah</span>
+      </h1>
+      <div class="hero-typed rv">
+        <span class="tprefix">$ role =</span>
+        <span id="typed-text"></span><span class="tcursor"></span>
+      </div>
+      <p class="hero-desc rv">
+        BS Mathematics graduate specialising in <strong>Artificial Intelligence, Machine Learning, Cryptography, Statistics, Business Intelligence</strong>, and <strong>Design & Analysis of Algorithms</strong>. I combine mathematical theory with practical software solutions to build intelligent systems, predictive analytics platforms, computer vision applications, and optimisation algorithms for real-world problems. Actively seeking opportunities in AI, ML, Data Science, BI, and Algorithm Engineering.
+      </p>
+      <div class="hero-ctas rv">
+        <a href="#projects" class="cta-a">View My Projects →</a>
+        <a href="mailto:shahtahzeeb342@gmail.com" class="cta-b">✉ Contact Me</a>
+      </div>
+      <div class="hero-metrics rv">
+        <div class="hmet"><div class="hmet-n">17+</div><div class="hmet-l">Skills</div></div>
+        <div class="hmet"><div class="hmet-n">12</div><div class="hmet-l">Projects</div></div>
+        <div class="hmet"><div class="hmet-n">BS</div><div class="hmet-l">Mathematics</div></div>
+        <div class="hmet"><div class="hmet-n">✓</div><div class="hmet-l">Available</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="terminal rvr">
+        <div class="tbar">
+          <div class="tdot td1"></div><div class="tdot td2"></div><div class="tdot td3"></div>
+          <div class="ttitle">tahzeeb@portfolio ~ profile.py</div>
+        </div>
+        <div class="tbody">
+          <div class="tl"><span class="tcm"># Muhammad Tahzeeb Shah — AI Engineer</span></div>
+          <div class="tgap"></div>
+          <div class="tl"><span class="tp">$</span><span class="tc"> python profile.py</span></div>
+          <div class="tgap"></div>
+          <div class="tl"><span class="tk">name</span><span class="tc">: </span><span class="ts">"Muhammad Tahzeeb Shah"</span></div>
+          <div class="tl"><span class="tk">degree</span><span class="tc">: </span><span class="ts">"BS Mathematics"</span></div>
+          <div class="tl"><span class="tk">location</span><span class="tc">: </span><span class="ts">"Pakistan 🇵🇰"</span></div>
+          <div class="tl"><span class="tk">email</span><span class="tc">: </span><span class="ts">"shahtahzeeb342@gmail.com"</span></div>
+          <div class="tgap"></div>
+          <div class="tl"><span class="tk">skills</span><span class="tc">: [</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Python"</span><span class="tc">, </span><span class="ts">"ML"</span><span class="tc">, </span><span class="ts">"Deep Learning"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Computer Vision"</span><span class="tc">, </span><span class="ts">"NLP"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Agentic AI"</span><span class="tc">, </span><span class="ts">"RAG Systems"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Cryptography"</span><span class="tc">, </span><span class="ts">"Game Theory"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Design & Analysis of Algorithms"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Data Structures"</span><span class="tc">, </span><span class="ts">"Statistics"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"Power BI"</span><span class="tc">, </span><span class="ts">"SQL"</span><span class="tc">, </span><span class="ts">"PostgreSQL"</span><span class="tc">,</span></div>
+          <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"MATLAB"</span><span class="tc">, </span><span class="ts">"Fuzzy Logic"</span></div>
+          <div class="tl"><span class="tc">]</span></div>
+          <div class="tgap"></div>
+          <div class="tl"><span class="tk">projects</span><span class="tc">: </span><span class="tnum">12</span><span class="tc"> completed</span></div>
+          <div class="tl"><span class="tk">status</span><span class="tc">: </span><span class="tok">"available ✓"</span></div>
+          <div class="tgap"></div>
+          <div class="tl"><span class="tp">$</span><span class="tok"> Process complete. Let's build.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stitem rv"><div class="stbig">17+</div><div class="stlabel">Technical Skills</div><div class="stsub">across AI & Math</div></div>
+    <div class="stitem rv"><div class="stbig">12</div><div class="stlabel">AI Projects</div><div class="stsub">built & completed</div></div>
+    <div class="stitem rv"><div class="stbig">BS</div><div class="stlabel">Mathematics</div><div class="stsub">recent graduate</div></div>
+    <div class="stitem rv"><div class="stbig">∞</div><div class="stlabel">Mathematical Depth</div><div class="stsub">theory + practice</div></div>
+    <div class="stitem rv"><div class="stbig">✓</div><div class="stlabel">Available Now</div><div class="stsub">open to roles</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about-sec" id="about">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">01</span><div class="sline"></div><span class="stag">About Me</span></div>
+      <h2 class="stitle">Where Equations<br>Meet Intelligence</h2>
+    </div>
+    <div class="about-grid">
+      <div class="atext rvl">
+        <p>I am <strong>Muhammad Tahzeeb Shah</strong>, a BS Mathematics graduate specialising in Artificial Intelligence, Machine Learning, Cryptography, Statistics, Business Intelligence, and Design &amp; Analysis of Algorithms.</p>
+        <p>My work combines <strong>mathematical theory with practical software solutions</strong>, allowing me to build intelligent systems, predictive analytics platforms, computer vision applications, and optimisation algorithms for real-world problems.</p>
+        <p>I believe the best AI engineers are first strong mathematicians — every neural network is a system of equations, every encryption algorithm a theorem, every optimisation a minimisation problem. I see AI through the lens of <strong>pure mathematics</strong>, which gives me an edge most practitioners simply don't have.</p>
+        <div class="codeblock">
+          <div class="cbr"><span class="cbn">1</span><span><span class="cbkw">class</span> <span class="cbfn">TahzeebShah</span>:</span></div>
+          <div class="cbr"><span class="cbn">2</span><span>&nbsp;&nbsp;degree = <span class="cbst">"BS Mathematics"</span></span></div>
+          <div class="cbr"><span class="cbn">3</span><span>&nbsp;&nbsp;specialisation = <span class="cbst">"AI + Algorithms + Cryptography"</span></span></div>
+          <div class="cbr"><span class="cbn">4</span><span>&nbsp;&nbsp;seeking = <span class="cbst">"AI · ML · Data Science · BI · Algorithms"</span></span></div>
+          <div class="cbr"><span class="cbn">5</span><span>&nbsp;&nbsp;<span class="cbcm"># "Mathematics is the source code of intelligence"</span></span></div>
+        </div>
+        <p>I am actively seeking opportunities in <strong>AI, Machine Learning, Data Science, Business Intelligence, and Algorithm Engineering</strong>.</p>
+        <div class="achips">
+          <div class="chip">🐍 Python</div><div class="chip">🤖 Machine Learning</div>
+          <div class="chip">🧠 Deep Learning</div><div class="chip">👁️ Computer Vision</div>
+          <div class="chip">💬 NLP</div><div class="chip">⚡ Agentic AI</div>
+          <div class="chip">🔐 Cryptography</div><div class="chip">🎲 Game Theory</div>
+          <div class="chip">⚙️ Algorithms</div><div class="chip">📊 Power BI</div>
+          <div class="chip">🗄️ SQL</div><div class="chip">🔢 MATLAB</div>
+        </div>
+      </div>
+      <div class="edu-stack rvr">
+        <div class="edu-item ep">
+          <span class="ebadge eb1">🎓 Recent Graduate</span>
+          <h4>BS Mathematics</h4>
+          <div class="edu-uni">Pakistan · 2024</div>
+          <div class="etags">
+            <span class="etag2">Real Analysis</span><span class="etag2">Linear Algebra</span>
+            <span class="etag2">Cryptography</span><span class="etag2">Game Theory</span>
+            <span class="etag2">Fuzzy Logic</span><span class="etag2">Numerical Methods</span>
+            <span class="etag2">Design & Analysis of Algorithms</span>
+            <span class="etag2">Statistics</span><span class="etag2">Function Analysis</span>
+            <span class="etag2">Machine Learning</span><span class="etag2">Business Intelligence</span>
+            <span class="etag2">Data Structures</span><span class="etag2">Optimisation</span>
+          </div>
+        </div>
+        <div class="edu-item es">
+          <span class="ebadge eb2">📚 FSC</span>
+          <h4>Higher Secondary Certificate</h4>
+          <div class="edu-uni">Pre-Engineering · Pakistan</div>
+          <div class="etags"><span class="etag2">Advanced Math</span><span class="etag2">Physics</span><span class="etag2">Chemistry</span></div>
+        </div>
+        <div class="edu-item et">
+          <span class="ebadge eb3">🏫 Matric</span>
+          <h4>Secondary School Certificate</h4>
+          <div class="edu-uni">Science · Pakistan</div>
+          <div class="etags"><span class="etag2">Mathematics</span><span class="etag2">Science</span><span class="etag2">Distinction</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SKILLS -->
+<section class="section skills-bg" id="skills">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">02</span><div class="sline"></div><span class="stag">Expertise</span></div>
+      <h2 class="stitle">Skills & Technologies</h2>
+      <p class="ssub">17+ technical skills rooted in mathematical foundations — from classical algorithms to modern agentic AI systems.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skcard rv" style="--sglow:rgba(56,139,253,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(56,139,253,.12)">📈</div><span class="skpct">90%</span></div>
+        <h4>Data Analysis</h4><p>Statistical analysis and EDA turning complex datasets into actionable intelligence.</p>
+        <div class="sktags"><span class="skt">Pandas</span><span class="skt">NumPy</span><span class="skt">Matplotlib</span><span class="skt">Seaborn</span></div>
+        <div class="skbar"><div class="skfill" data-w="90" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(57,213,213,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(57,213,213,.12)">🐍</div><span class="skpct">88%</span></div>
+        <h4>Python Development</h4><p>Clean, efficient Python apps, automation scripts, and data pipelines.</p>
+        <div class="sktags"><span class="skt">Python</span><span class="skt">OOP</span><span class="skt">FastAPI</span><span class="skt">APIs</span></div>
+        <div class="skbar"><div class="skfill" data-w="88" style="background:linear-gradient(90deg,var(--cyan),var(--blue2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(56,139,253,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(56,139,253,.12)">🤖</div><span class="skpct">85%</span></div>
+        <h4>Machine Learning</h4><p>Supervised, unsupervised, and ensemble learning rooted in mathematical theory.</p>
+        <div class="sktags"><span class="skt">Scikit-learn</span><span class="skt">XGBoost</span><span class="skt">Feature Eng.</span></div>
+        <div class="skbar"><div class="skfill" data-w="85" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(163,113,247,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(163,113,247,.12)">🧠</div><span class="skpct">80%</span></div>
+        <h4>Deep Learning</h4><p>Neural architectures — CNNs, RNNs, Transformers — from theory to deployment.</p>
+        <div class="sktags"><span class="skt">TensorFlow</span><span class="skt">PyTorch</span><span class="skt">CNNs</span><span class="skt">BERT</span></div>
+        <div class="skbar"><div class="skfill" data-w="80" style="background:linear-gradient(90deg,var(--purple),var(--purple2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(255,123,114,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(255,123,114,.12)">👁️</div><span class="skpct">82%</span></div>
+        <h4>Computer Vision</h4><p>Image classification, object detection, and visual AI systems using YOLO and CNNs.</p>
+        <div class="sktags"><span class="skt">YOLO</span><span class="skt">OpenCV</span><span class="skt">Transfer Learning</span></div>
+        <div class="skbar"><div class="skfill" data-w="82" style="background:linear-gradient(90deg,var(--red),#ff9d97)"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(57,213,213,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(57,213,213,.12)">💬</div><span class="skpct">79%</span></div>
+        <h4>NLP</h4><p>Text classification, sentiment analysis, and language model pipelines.</p>
+        <div class="sktags"><span class="skt">BERT</span><span class="skt">spaCy</span><span class="skt">Transformers</span><span class="skt">NLTK</span></div>
+        <div class="skbar"><div class="skfill" data-w="79" style="background:linear-gradient(90deg,var(--cyan),var(--cyan2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(57,213,213,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(57,213,213,.12)">⚡</div><span class="skpct">78%</span></div>
+        <h4>Agentic AI & RAG</h4><p>Autonomous LLM agents with RAG pipelines and tool-use for complex automation.</p>
+        <div class="sktags"><span class="skt">LangChain</span><span class="skt">RAG</span><span class="skt">LLMs</span><span class="skt">Tool Use</span></div>
+        <div class="skbar"><div class="skfill" data-w="78" style="background:linear-gradient(90deg,var(--cyan),var(--blue2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(227,179,65,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(227,179,65,.12)">🔐</div><span class="skpct">84%</span></div>
+        <h4>Cryptography</h4><p>Number theory and algebra applied to RSA, AES, ECC encryption protocols.</p>
+        <div class="sktags"><span class="skt">RSA</span><span class="skt">AES</span><span class="skt">ECC</span><span class="skt">Hashing</span></div>
+        <div class="skbar"><div class="skfill" data-w="84" style="background:linear-gradient(90deg,var(--gold),var(--gold2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(63,185,80,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(63,185,80,.12)">🎲</div><span class="skpct">87%</span></div>
+        <h4>Game Theory</h4><p>Nash equilibria, mechanism design, strategic interaction models, and cooperative games.</p>
+        <div class="sktags"><span class="skt">Nash Eq.</span><span class="skt">Zero-Sum</span><span class="skt">Mechanism</span></div>
+        <div class="skbar"><div class="skfill" data-w="87" style="background:linear-gradient(90deg,var(--green),var(--green2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(56,139,253,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(56,139,253,.12)">⚙️</div><span class="skpct">86%</span></div>
+        <h4>Design & Analysis of Algorithms</h4><p>Complexity analysis, graph algorithms, dynamic programming, and greedy methods.</p>
+        <div class="sktags"><span class="skt">Big-O</span><span class="skt">Graphs</span><span class="skt">DP</span><span class="skt">Greedy</span></div>
+        <div class="skbar"><div class="skfill" data-w="86" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(56,139,253,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(56,139,253,.12)">📊</div><span class="skpct">85%</span></div>
+        <h4>Business Intelligence</h4><p>Interactive Power BI & Tableau dashboards transforming raw data into strategic insight.</p>
+        <div class="sktags"><span class="skt">Power BI</span><span class="skt">Tableau</span><span class="skt">DAX</span><span class="skt">Excel</span></div>
+        <div class="skbar"><div class="skfill" data-w="85" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(57,213,213,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(57,213,213,.12)">🗄️</div><span class="skpct">83%</span></div>
+        <h4>SQL & PostgreSQL</h4><p>Relational database querying, schema design, and data warehousing for analytics.</p>
+        <div class="sktags"><span class="skt">SQL</span><span class="skt">PostgreSQL</span><span class="skt">Query Opt.</span></div>
+        <div class="skbar"><div class="skfill" data-w="83" style="background:linear-gradient(90deg,var(--cyan),var(--blue2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(163,113,247,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(163,113,247,.12)">🔗</div><span class="skpct">80%</span></div>
+        <h4>Data Structures</h4><p>Trees, graphs, heaps, hash tables — implementation and analysis from mathematical foundations.</p>
+        <div class="sktags"><span class="skt">Trees</span><span class="skt">Graphs</span><span class="skt">Heaps</span><span class="skt">Hash Tables</span></div>
+        <div class="skbar"><div class="skfill" data-w="80" style="background:linear-gradient(90deg,var(--purple),var(--purple2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(63,185,80,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(63,185,80,.12)">📉</div><span class="skpct">88%</span></div>
+        <h4>Statistics</h4><p>Probability theory, Bayesian inference, hypothesis testing, and statistical modelling.</p>
+        <div class="sktags"><span class="skt">Probability</span><span class="skt">Bayesian</span><span class="skt">Hypothesis</span></div>
+        <div class="skbar"><div class="skfill" data-w="88" style="background:linear-gradient(90deg,var(--green),var(--green2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(227,179,65,.05)">
+        <div class="skhdr"><div class="skico" style="background:rgba(227,179,65,.12)">🔢</div><span class="skpct">83%</span></div>
+        <h4>MATLAB & Fuzzy Logic</h4><p>Numerical simulation, fuzzy sets, membership functions, and uncertainty quantification.</p>
+        <div class="sktags"><span class="skt">MATLAB</span><span class="skt">Fuzzy Sets</span><span class="skt">Simulation</span></div>
+        <div class="skbar"><div class="skfill" data-w="83" style="background:linear-gradient(90deg,var(--gold),var(--gold2))"></div></div>
+      </div>
+      <div class="skcard rv" style="--sglow:rgba(56,139,253,.06)">
+        <div class="skhdr"><div class="skico" style="background:rgba(56,139,253,.12)">🔍</div><span class="skpct">85%</span></div>
+        <h4>Optimisation</h4><p>Function analysis, convex optimisation, linear programming, and gradient-based methods.</p>
+        <div class="sktags"><span class="skt">Convex Opt.</span><span class="skt">Linear Prog.</span><span class="skt">SciPy</span></div>
+        <div class="skbar"><div class="skfill" data-w="85" style="background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- PROJECTS -->
+<section class="section proj-bg" id="projects">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">03</span><div class="sline"></div><span class="stag">Portfolio</span></div>
+      <h2 class="stitle">12 AI & Data Projects</h2>
+      <p class="ssub">Computer vision, NLP, predictive analytics, cryptography, and algorithm systems — real solutions to real problems.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="pcard rv"><div class="pvis pv1"><div class="pgrid"></div><div class="pglow" style="background:var(--blue)"></div><div class="pvis-icon">🤖</div><div class="pbadge pb-p">LLM · Agentic AI</div></div><div class="pbody"><div class="pcat">AI Assistant</div><h4>MathGPT</h4><p>AI-powered mathematical assistant using LLMs and RAG to solve, explain, and visualise complex mathematical problems step-by-step.</p><div class="pstack"><span class="pst">Python</span><span class="pst">LangChain</span><span class="pst">RAG</span><span class="pst">LLMs</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv2"><div class="pgrid"></div><div class="pglow" style="background:var(--green)"></div><div class="pvis-icon">🚦</div><div class="pbadge pb-g">Computer Vision</div></div><div class="pbody"><div class="pcat">Smart City</div><h4>Smart Traffic Monitoring</h4><p>Real-time traffic monitoring system using YOLO object detection to count vehicles, detect congestion, and trigger smart signals.</p><div class="pstack"><span class="pst">Python</span><span class="pst">YOLO</span><span class="pst">OpenCV</span><span class="pst">Real-Time</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv3"><div class="pgrid"></div><div class="pglow" style="background:var(--red)"></div><div class="pvis-icon">🏥</div><div class="pbadge pb-r">Healthcare AI</div></div><div class="pbody"><div class="pcat">Medical AI</div><h4>AI Medical Image Analyzer</h4><p>Deep learning system for medical image analysis, detecting anomalies and assisting radiologists with CNN-based diagnostic support.</p><div class="pstack"><span class="pst">PyTorch</span><span class="pst">CNN</span><span class="pst">Transfer Learning</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv4"><div class="pgrid"></div><div class="pglow" style="background:var(--green2)"></div><div class="pvis-icon">🌿</div><div class="pbadge pb-g">Agriculture AI</div></div><div class="pbody"><div class="pcat">Computer Vision</div><h4>Plant Disease Detection</h4><p>CNN model detecting crop diseases from leaf images, enabling early intervention and protecting agricultural yields.</p><div class="pstack"><span class="pst">Python</span><span class="pst">CNN</span><span class="pst">TensorFlow</span><span class="pst">OpenCV</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv5"><div class="pgrid"></div><div class="pglow" style="background:var(--blue2)"></div><div class="pvis-icon">🩺</div><div class="pbadge pb-b">Healthcare AI</div></div><div class="pbody"><div class="pcat">Computer Vision</div><h4>AI Skin Disease Detector</h4><p>Deep learning model classifying skin diseases from images, supporting early diagnosis and reducing dependency on specialist availability.</p><div class="pstack"><span class="pst">Python</span><span class="pst">CNN</span><span class="pst">TensorFlow</span><span class="pst">Classification</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv6"><div class="pgrid"></div><div class="pglow" style="background:var(--orange)"></div><div class="pvis-icon">📦</div><div class="pbadge pb-o">Business Intelligence</div></div><div class="pbody"><div class="pcat">Predictive Analytics</div><h4>Predictive Sales & Inventory</h4><p>ML-powered sales forecasting and inventory optimisation with a real-time Power BI dashboard for executive decision-making.</p><div class="pstack"><span class="pst">Python</span><span class="pst">XGBoost</span><span class="pst">Power BI</span><span class="pst">Time Series</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv7"><div class="pgrid"></div><div class="pglow" style="background:var(--indigo)"></div><div class="pvis-icon">🛡️</div><div class="pbadge pb-i">FinTech Security</div></div><div class="pbody"><div class="pcat">Anomaly Detection</div><h4>Fraud Detection Analytics</h4><p>Real-time fraud detection platform using anomaly detection and ensemble classifiers on transaction data with live analytics dashboard.</p><div class="pstack"><span class="pst">Python</span><span class="pst">Random Forest</span><span class="pst">Power BI</span><span class="pst">Anomaly Det.</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv8"><div class="pgrid"></div><div class="pglow" style="background:var(--teal)"></div><div class="pvis-icon">📉</div><div class="pbadge pb-t">CRM Analytics</div></div><div class="pbody"><div class="pcat">Predictive ML · Dashboard</div><h4>Customer Churn Prediction</h4><p>Predictive dashboard identifying at-risk customers using ML behavioural models, helping businesses reduce churn proactively.</p><div class="pstack"><span class="pst">Python</span><span class="pst">ML</span><span class="pst">Tableau</span><span class="pst">Feature Eng.</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv9"><div class="pgrid"></div><div class="pglow" style="background:var(--gold)"></div><div class="pvis-icon">🔐</div><div class="pbadge pb-go">Cryptography</div></div><div class="pbody"><div class="pcat">Security · Number Theory</div><h4>RSA Cryptosystem</h4><p>Pure Python RSA implementation from scratch — prime generation, Euler's theorem, modular exponentiation, no crypto libraries.</p><div class="pstack"><span class="pst">Python</span><span class="pst">Number Theory</span><span class="pst">RSA</span><span class="pst">Modular Arith.</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv10"><div class="pgrid"></div><div class="pglow" style="background:var(--cyan)"></div><div class="pvis-icon">📰</div><div class="pbadge pb-c">Media Integrity</div></div><div class="pbody"><div class="pcat">NLP · Classification</div><h4>Fake News Detection</h4><p>BERT-powered misinformation classifier detecting fake news with high accuracy using NLP feature extraction and ensemble models.</p><div class="pstack"><span class="pst">Python</span><span class="pst">BERT</span><span class="pst">NLP</span><span class="pst">Classification</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv11"><div class="pgrid"></div><div class="pglow" style="background:var(--red)"></div><div class="pvis-icon">🔥</div><div class="pbadge pb-r">Safety AI</div></div><div class="pbody"><div class="pcat">Computer Vision · Real-Time</div><h4>AI Fire & Smoke Detection</h4><p>Real-time fire and smoke detection using YOLO, enabling early automated safety alerts in high-risk environments.</p><div class="pstack"><span class="pst">Python</span><span class="pst">YOLO</span><span class="pst">OpenCV</span><span class="pst">Real-Time</span></div></div></div>
+
+      <div class="pcard rv"><div class="pvis pv12"><div class="pgrid"></div><div class="pglow" style="background:var(--purple)"></div><div class="pvis-icon">📊</div><div class="pbadge pb-p">Algorithm Viz</div></div><div class="pbody"><div class="pcat">Design & Analysis of Algorithms</div><h4>Algorithm Visualizer & Complexity Analyzer</h4><p>Interactive tool visualising sorting, graph, and DP algorithms in real time with Big-O complexity analysis and comparison charts.</p><div class="pstack"><span class="pst">Python</span><span class="pst">Big-O</span><span class="pst">Graphs</span><span class="pst">Visualisation</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- GITHUB REPOS -->
+<section class="section" id="repos">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">04</span><div class="sline"></div><span class="stag">GitHub</span></div>
+      <h2 class="stitle">Featured Repositories</h2>
+      <p class="ssub">Open source projects and implementations — code that demonstrates mathematical depth and engineering quality.</p>
+    </div>
+    <div class="repo-grid">
+      <div class="repo-card rv"><div class="repo-icon">🤖</div><div class="repo-name">MathGPT</div><div class="repo-desc">LLM-powered math assistant with RAG — solves and explains complex problems with step-by-step reasoning.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ AI · RAG</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🚦</div><div class="repo-name">Smart-Traffic-Monitor</div><div class="repo-desc">Real-time vehicle detection and traffic congestion analysis using YOLO object detection.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ YOLO · CV</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🏥</div><div class="repo-name">AI-Medical-Analyzer</div><div class="repo-desc">Deep learning diagnostic tool for medical image analysis with CNN-based anomaly detection.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ PyTorch · CNN</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🌿</div><div class="repo-name">Plant-Disease-Detector</div><div class="repo-desc">Transfer learning CNN for crop disease classification from leaf images, protecting agricultural yield.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ TensorFlow</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">📉</div><div class="repo-name">Customer-Churn-Prediction</div><div class="repo-desc">ML pipeline with Tableau dashboard for identifying at-risk customers and reducing churn proactively.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ ML · BI</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🛡️</div><div class="repo-name">Fraud-Detection-Analytics</div><div class="repo-desc">Real-time fraud detection using anomaly detection algorithms and ensemble classifiers on transaction data.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Random Forest</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🔐</div><div class="repo-name">RSA-Cryptosystem</div><div class="repo-desc">Pure Python RSA from scratch using number theory, Euler's theorem, and modular exponentiation.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Cryptography</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">📊</div><div class="repo-name">Algorithm-Visualizer</div><div class="repo-desc">Interactive visualisation of sorting, graph, and DP algorithms with real-time Big-O complexity analysis.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Algorithms</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- SERVICES -->
+<section class="section skills-bg" id="services">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">05</span><div class="sline"></div><span class="stag">Services</span></div>
+      <h2 class="stitle">What I Build For You</h2>
+      <p class="ssub">Available for freelance, internships, and full-time roles across AI, data science, and algorithm engineering.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svccard rv" data-n="01"><div class="svctop"><div class="svcico" style="background:rgba(56,139,253,.12)">📊</div><div class="svcarr">→</div></div><h4>Data Analysis & BI Dashboards</h4><p>In-depth EDA, statistical analysis, and interactive Power BI/Tableau dashboards transforming raw data into executive-level intelligence.</p></div>
+      <div class="svccard rv" data-n="02"><div class="svctop"><div class="svcico" style="background:rgba(57,213,213,.12)">🤖</div><div class="svcarr">→</div></div><h4>ML & Deep Learning Models</h4><p>End-to-end machine learning and deep learning solutions — preprocessing, training, evaluation, and deployment.</p></div>
+      <div class="svccard rv" data-n="03"><div class="svctop"><div class="svcico" style="background:rgba(255,123,114,.12)">👁️</div><div class="svcarr">→</div></div><h4>Computer Vision Systems</h4><p>Detection, classification, and recognition systems using YOLO, CNNs, and transfer learning for real-world applications.</p></div>
+      <div class="svccard rv" data-n="04"><div class="svctop"><div class="svcico" style="background:rgba(163,113,247,.12)">⚡</div><div class="svcarr">→</div></div><h4>Agentic AI & RAG Systems</h4><p>Autonomous AI agents using LLMs, RAG pipelines, and tool-use for intelligent multi-step task automation.</p></div>
+      <div class="svccard rv" data-n="05"><div class="svctop"><div class="svcico" style="background:rgba(227,179,65,.12)">🔐</div><div class="svcarr">→</div></div><h4>Cryptography & Security</h4><p>Cryptographic protocols using number theory — RSA, AES, ECC implementations and security consulting.</p></div>
+      <div class="svccard rv" data-n="06"><div class="svctop"><div class="svcico" style="background:rgba(63,185,80,.12)">🎲</div><div class="svcarr">→</div></div><h4>Mathematical Modelling</h4><p>Game-theoretic models, fuzzy logic systems, MATLAB simulations, and optimisation for complex real-world problems.</p></div>
+      <div class="svccard rv" data-n="07"><div class="svctop"><div class="svcico" style="background:rgba(56,139,253,.12)">⚙️</div><div class="svcarr">→</div></div><h4>Algorithm Design & Optimisation</h4><p>Design efficient algorithms, analyse complexity, implement graph algorithms, dynamic programming, greedy methods, and optimisation solutions.</p></div>
+      <div class="svccard rv" data-n="08"><div class="svctop"><div class="svcico" style="background:rgba(57,213,213,.12)">📚</div><div class="svcarr">→</div></div><h4>Academic & Project Support</h4><p>Mentoring final year projects, research papers, and assignments in mathematics, data science, algorithms, and AI.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="si">
+    <div class="sh">
+      <div class="sew"><span class="snum">06</span><div class="sline"></div><span class="stag">Contact</span></div>
+      <h2 class="stitle">Let's Build Something<br>Remarkable</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="rvl">
+        <h3>Open to Opportunities,<br>Projects & Collaborations</h3>
+        <p>Whether you need an AI engineer, data scientist, ML developer, algorithm designer, or someone who truly understands the mathematics behind intelligent systems — I'm ready to deliver precision, depth, and results.</p>
+        <div class="clinks">
+          <a class="clink" href="mailto:shahtahzeeb342@gmail.com">
+            <div class="clinkico" style="background:rgba(234,67,53,.15)">📧</div>
+            <div><div class="clinklabel">Email</div><div class="clinkval">shahtahzeeb342@gmail.com</div></div>
+          </a>
+          <a class="clink" href="https://www.linkedin.com/in/m-tahzeeb-shah-63055237a" target="_blank">
+            <div class="clinkico" style="background:rgba(10,102,194,.2)">💼</div>
+            <div><div class="clinklabel">LinkedIn</div><div class="clinkval">M. Tahzeeb Shah</div></div>
+          </a>
+          <a class="clink" href="https://github.com/tahzeebshah" target="_blank">
+            <div class="clinkico" style="background:rgba(255,255,255,.06)">💻</div>
+            <div><div class="clinklabel">GitHub</div><div class="clinkval">github.com/tahzeebshah</div></div>
+          </a>
+          <div class="clink">
+            <div class="clinkico" style="background:rgba(57,213,213,.12)">📍</div>
+            <div><div class="clinklabel">Location</div><div class="clinkval">Pakistan 🇵🇰 · Open to Remote</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cform rvr">
+        <div class="frow">
+          <div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="fg"><label>Subject</label><input type="text" placeholder="Project / Job / Collaboration"></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project or opportunity..."></textarea></div>
+        <button class="sbtn" onclick="this.innerHTML='✓ Message Sent! I will reply soon.';this.style.background='linear-gradient(135deg,#3fb950,#28a745)'">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-in">
+    <div class="flogo"><span>tahzeeb</span>.dev</div>
+    <div class="fcopy">© 2024 Muhammad Tahzeeb Shah · BS Mathematics · AI Engineer · Algorithm Designer · Pakistan 🇵🇰</div>
+    <div class="flinks">
+      <a href="#about">about</a><a href="#skills">skills</a>
+      <a href="#projects">projects</a><a href="#repos">github</a><a href="#contact">contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* CANVAS */
+const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
+let W,H,pts=[];
+function rsz(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;pts=[];for(let i=0;i<130;i++)pts.push(mkp());}
+function mkp(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.2+.3,life:Math.random()*.4+.08,c:Math.random()>.55?[57,213,213]:[56,139,253]};}
+function upd(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W||p.y<0||p.y>H)Object.assign(p,mkp());}
+function drw(p){cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle=`rgba(${p.c},${p.life})`;cx.fill();}
+function conn(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){cx.strokeStyle=`rgba(56,139,253,${.07*(1-d/110)})`;cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke();}}}
+function frame(){cx.clearRect(0,0,W,H);pts.forEach(p=>{upd(p);drw(p);});conn();requestAnimationFrame(frame);}
+window.addEventListener('resize',rsz);rsz();frame();
+
+/* TYPING */
+const phrases=['"AI Engineer"','"Machine Learning Engineer"','"Data Scientist"','"BI Developer"','"Python Developer"','"Cryptographer"','"Game Theorist"','"Algorithm Designer"','"Deep Learning Engineer"','"Computer Vision Engineer"'];
+let pi=0,ci=0,del=false;
+const tel=document.getElementById('typed-text');
+function type(){const cur=phrases[pi];if(!del){tel.textContent=cur.slice(0,++ci);if(ci===cur.length){del=true;setTimeout(type,2400);return;}}else{tel.textContent=cur.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}setTimeout(type,del?32:68);}
+type();
+
+/* REVEAL */
+const rvEls=document.querySelectorAll('.rv,.rvl,.rvr');
+const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('on'),i*55);});},{threshold:.06});
+rvEls.forEach(e=>ro.observe(e));
+
+/* SKILL BARS */
+const bars=document.querySelectorAll('.skfill');
+const bo=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)setTimeout(()=>{e.target.style.width=e.target.getAttribute('data-w')+'%';},250);});},{threshold:.4});
+bars.forEach(b=>bo.observe(b));
+
+/* ACTIVE NAV */
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let cur='';document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id;});navAs.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});});
+</script>
+</body>
+</html>
