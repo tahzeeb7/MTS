@@ -132,8 +132,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;padding:0 4%;dis
 /* PROJECTS */
 .proj-bg{background:var(--bg2)}
 .proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .35s;position:relative}
+
+/* clickable project cards */
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .35s;position:relative;display:block;text-decoration:none;color:inherit;cursor:pointer}
 .pcard:hover{border-color:var(--border2);transform:translateY(-7px);box-shadow:0 22px 56px rgba(0,0,0,.55)}
+
+/* live badge for clickable cards */
+.plive-badge{position:absolute;top:9px;right:9px;z-index:4;display:flex;align-items:center;gap:4px;background:rgba(63,185,80,.15);border:1px solid rgba(63,185,80,.3);border-radius:4px;padding:3px 8px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--green2);letter-spacing:.6px;text-transform:uppercase;opacity:0;transition:opacity .25s}
+.pcard:hover .plive-badge{opacity:1}
+.plive-dot{width:5px;height:5px;border-radius:50%;background:var(--green2);animation:ndotpulse 1.5s infinite}
+
+/* launch icon overlay on hover */
+.plaunch{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,14,.55);opacity:0;transition:opacity .25s;z-index:3;backdrop-filter:blur(2px);border-radius:14px 14px 0 0}
+.plaunch-icon{font-size:28px;filter:drop-shadow(0 0 12px var(--cyan2))}
+.pcard[href]:hover .plaunch{opacity:1}
+
 .pvis{height:110px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .pvis-icon{font-size:38px;position:relative;z-index:2;filter:drop-shadow(0 0 16px currentColor)}
 .pgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,139,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(56,139,253,.05) 1px,transparent 1px);background-size:18px 18px}
@@ -148,15 +161,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;padding:0 4%;dis
 .pb-go{background:rgba(227,179,65,.2);color:var(--gold2);border:1px solid rgba(227,179,65,.3)}
 .pb-t{background:rgba(20,184,166,.2);color:var(--teal);border:1px solid rgba(20,184,166,.3)}
 .pb-i{background:rgba(99,102,241,.2);color:var(--indigo);border:1px solid rgba(99,102,241,.3)}
-.pb-gr{background:rgba(56,139,253,.15);color:var(--blue3);border:1px solid rgba(56,139,253,.25)}
-.pb-rd{background:rgba(255,123,114,.15);color:#ff9d97;border:1px solid rgba(255,123,114,.25)}
-.pb-tl{background:rgba(20,184,166,.15);color:var(--teal);border:1px solid rgba(20,184,166,.25)}
 .pv1{background:linear-gradient(135deg,#061020,#0d2040)}.pv2{background:linear-gradient(135deg,#1a0808,#2e1010)}
 .pv3{background:linear-gradient(135deg,#081a0e,#102a18)}.pv4{background:linear-gradient(135deg,#1a1200,#2e2000)}
 .pv5{background:linear-gradient(135deg,#120828,#200e40)}.pv6{background:linear-gradient(135deg,#081a1a,#102828)}
 .pv7{background:linear-gradient(135deg,#1a0e00,#2a1800)}.pv8{background:linear-gradient(135deg,#081820,#0e2430)}
 .pv9{background:linear-gradient(135deg,#100820,#1c1030)}.pv10{background:linear-gradient(135deg,#001820,#003040)}
 .pv11{background:linear-gradient(135deg,#1c0808,#300e0e)}.pv12{background:linear-gradient(135deg,#080820,#101030)}
+.pv13{background:linear-gradient(135deg,#061a18,#0d2e2a)}.pv14{background:linear-gradient(135deg,#0a0620,#160e38)}
 .pbody{padding:14px}
 .pcat{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;font-family:'JetBrains Mono',monospace}
 .pcard h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3}
@@ -306,7 +317,7 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
       </div>
       <div class="hero-metrics rv">
         <div class="hmet"><div class="hmet-n">17+</div><div class="hmet-l">Skills</div></div>
-        <div class="hmet"><div class="hmet-n">12</div><div class="hmet-l">Projects</div></div>
+        <div class="hmet"><div class="hmet-n">14</div><div class="hmet-l">Projects</div></div>
         <div class="hmet"><div class="hmet-n">BS</div><div class="hmet-l">Mathematics</div></div>
         <div class="hmet"><div class="hmet-n">✓</div><div class="hmet-l">Available</div></div>
       </div>
@@ -338,7 +349,7 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
           <div class="tl"><span class="tc">&nbsp;&nbsp;</span><span class="ts">"MATLAB"</span><span class="tc">, </span><span class="ts">"Fuzzy Logic"</span></div>
           <div class="tl"><span class="tc">]</span></div>
           <div class="tgap"></div>
-          <div class="tl"><span class="tk">projects</span><span class="tc">: </span><span class="tnum">12</span><span class="tc"> completed</span></div>
+          <div class="tl"><span class="tk">projects</span><span class="tc">: </span><span class="tnum">14</span><span class="tc"> completed</span></div>
           <div class="tl"><span class="tk">status</span><span class="tc">: </span><span class="tok">"available ✓"</span></div>
           <div class="tgap"></div>
           <div class="tl"><span class="tp">$</span><span class="tok"> Process complete. Let's build.</span></div>
@@ -352,7 +363,7 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
 <div class="stats-band">
   <div class="stats-inner">
     <div class="stitem rv"><div class="stbig">17+</div><div class="stlabel">Technical Skills</div><div class="stsub">across AI & Math</div></div>
-    <div class="stitem rv"><div class="stbig">12</div><div class="stlabel">AI Projects</div><div class="stsub">built & completed</div></div>
+    <div class="stitem rv"><div class="stbig">14</div><div class="stlabel">AI Projects</div><div class="stsub">built & completed</div></div>
     <div class="stitem rv"><div class="stbig">BS</div><div class="stlabel">Mathematics</div><div class="stsub">recent graduate</div></div>
     <div class="stitem rv"><div class="stbig">∞</div><div class="stlabel">Mathematical Depth</div><div class="stsub">theory + practice</div></div>
     <div class="stitem rv"><div class="stbig">✓</div><div class="stlabel">Available Now</div><div class="stsub">open to roles</div></div>
@@ -538,10 +549,47 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
   <div class="si">
     <div class="sh">
       <div class="sew"><span class="snum">03</span><div class="sline"></div><span class="stag">Portfolio</span></div>
-      <h2 class="stitle">12 AI & Data Projects</h2>
-      <p class="ssub">Computer vision, NLP, predictive analytics, cryptography, and algorithm systems — real solutions to real problems.</p>
+      <h2 class="stitle">14 AI & Data Projects</h2>
+      <p class="ssub">Computer vision, NLP, predictive analytics, cryptography, and algorithm systems — real solutions to real problems. <strong style="color:var(--green2)">Click any live project to try it.</strong></p>
     </div>
     <div class="proj-grid">
+
+      <!-- NEW PROJECT 1: LangChain RAG -->
+      <a class="pcard rv" href="https://ragaplication-isejwksdyrfgf2kghqfsoz.streamlit.app/" target="_blank" rel="noopener">
+        <div class="pvis pv13">
+          <div class="pgrid"></div>
+          <div class="pglow" style="background:var(--cyan)"></div>
+          <div class="pvis-icon">🦜</div>
+          <div class="pbadge pb-c">LangChain · RAG · Live</div>
+          <div class="plaunch"><div class="plaunch-icon">↗</div></div>
+        </div>
+        <div class="plive-badge"><div class="plive-dot"></div>Live App</div>
+        <div class="pbody">
+          <div class="pcat">Agentic AI · Document QA</div>
+          <h4>LangChain RAG Document Assistant</h4>
+          <p>Upload any PDF and chat with it using LangChain-powered RAG — semantic chunking, vector retrieval, and LLM-generated answers with source citations.</p>
+          <div class="pstack"><span class="pst">Python</span><span class="pst">LangChain</span><span class="pst">RAG</span><span class="pst">Streamlit</span><span class="pst">Vector DB</span></div>
+        </div>
+      </a>
+
+      <!-- NEW PROJECT 2: Pure Python RAG -->
+      <a class="pcard rv" href="https://groqwithoutlang-bfeimjdzbqb4msgqbnp9dm.streamlit.app/" target="_blank" rel="noopener">
+        <div class="pvis pv14">
+          <div class="pgrid"></div>
+          <div class="pglow" style="background:var(--purple)"></div>
+          <div class="pvis-icon">🐍</div>
+          <div class="pbadge pb-p">Pure Python · RAG · Live</div>
+          <div class="plaunch"><div class="plaunch-icon">↗</div></div>
+        </div>
+        <div class="plive-badge"><div class="plive-dot"></div>Live App</div>
+        <div class="pbody">
+          <div class="pcat">RAG · No Frameworks · Groq</div>
+          <h4>Pure Python RAG Document Assistant</h4>
+          <p>RAG pipeline built from scratch — no LangChain, no abstractions. Custom chunking, cosine similarity retrieval, and Groq-powered LLM inference in raw Python.</p>
+          <div class="pstack"><span class="pst">Python</span><span class="pst">Groq</span><span class="pst">RAG</span><span class="pst">Streamlit</span><span class="pst">From Scratch</span></div>
+        </div>
+      </a>
+
       <div class="pcard rv"><div class="pvis pv1"><div class="pgrid"></div><div class="pglow" style="background:var(--blue)"></div><div class="pvis-icon">🤖</div><div class="pbadge pb-p">LLM · Agentic AI</div></div><div class="pbody"><div class="pcat">AI Assistant</div><h4>MathGPT</h4><p>AI-powered mathematical assistant using LLMs and RAG to solve, explain, and visualise complex mathematical problems step-by-step.</p><div class="pstack"><span class="pst">Python</span><span class="pst">LangChain</span><span class="pst">RAG</span><span class="pst">LLMs</span></div></div></div>
 
       <div class="pcard rv"><div class="pvis pv2"><div class="pgrid"></div><div class="pglow" style="background:var(--green)"></div><div class="pvis-icon">🚦</div><div class="pbadge pb-g">Computer Vision</div></div><div class="pbody"><div class="pcat">Smart City</div><h4>Smart Traffic Monitoring</h4><p>Real-time traffic monitoring system using YOLO object detection to count vehicles, detect congestion, and trigger smart signals.</p><div class="pstack"><span class="pst">Python</span><span class="pst">YOLO</span><span class="pst">OpenCV</span><span class="pst">Real-Time</span></div></div></div>
@@ -565,6 +613,7 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
       <div class="pcard rv"><div class="pvis pv11"><div class="pgrid"></div><div class="pglow" style="background:var(--red)"></div><div class="pvis-icon">🔥</div><div class="pbadge pb-r">Safety AI</div></div><div class="pbody"><div class="pcat">Computer Vision · Real-Time</div><h4>AI Fire & Smoke Detection</h4><p>Real-time fire and smoke detection using YOLO, enabling early automated safety alerts in high-risk environments.</p><div class="pstack"><span class="pst">Python</span><span class="pst">YOLO</span><span class="pst">OpenCV</span><span class="pst">Real-Time</span></div></div></div>
 
       <div class="pcard rv"><div class="pvis pv12"><div class="pgrid"></div><div class="pglow" style="background:var(--purple)"></div><div class="pvis-icon">📊</div><div class="pbadge pb-p">Algorithm Viz</div></div><div class="pbody"><div class="pcat">Design & Analysis of Algorithms</div><h4>Algorithm Visualizer & Complexity Analyzer</h4><p>Interactive tool visualising sorting, graph, and DP algorithms in real time with Big-O complexity analysis and comparison charts.</p><div class="pstack"><span class="pst">Python</span><span class="pst">Big-O</span><span class="pst">Graphs</span><span class="pst">Visualisation</span></div></div></div>
+
     </div>
   </div>
 </section>
@@ -580,14 +629,14 @@ footer{background:#010408;border-top:1px solid var(--border);padding:32px 4%;pos
       <p class="ssub">Open source projects and implementations — code that demonstrates mathematical depth and engineering quality.</p>
     </div>
     <div class="repo-grid">
+      <div class="repo-card rv"><div class="repo-icon">🦜</div><div class="repo-name">LangChain-RAG-Assistant</div><div class="repo-desc">LangChain-powered document QA with semantic chunking, vector retrieval, and cited LLM answers — deployed on Streamlit.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ LangChain · RAG</div></div></div>
+      <div class="repo-card rv"><div class="repo-icon">🐍</div><div class="repo-name">Pure-Python-RAG</div><div class="repo-desc">RAG pipeline built from scratch — no frameworks, custom cosine similarity retrieval and Groq inference in pure Python.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Groq · From Scratch</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">🤖</div><div class="repo-name">MathGPT</div><div class="repo-desc">LLM-powered math assistant with RAG — solves and explains complex problems with step-by-step reasoning.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ AI · RAG</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">🚦</div><div class="repo-name">Smart-Traffic-Monitor</div><div class="repo-desc">Real-time vehicle detection and traffic congestion analysis using YOLO object detection.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ YOLO · CV</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">🏥</div><div class="repo-name">AI-Medical-Analyzer</div><div class="repo-desc">Deep learning diagnostic tool for medical image analysis with CNN-based anomaly detection.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ PyTorch · CNN</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">🌿</div><div class="repo-name">Plant-Disease-Detector</div><div class="repo-desc">Transfer learning CNN for crop disease classification from leaf images, protecting agricultural yield.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ TensorFlow</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">📉</div><div class="repo-name">Customer-Churn-Prediction</div><div class="repo-desc">ML pipeline with Tableau dashboard for identifying at-risk customers and reducing churn proactively.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ ML · BI</div></div></div>
-      <div class="repo-card rv"><div class="repo-icon">🛡️</div><div class="repo-name">Fraud-Detection-Analytics</div><div class="repo-desc">Real-time fraud detection using anomaly detection algorithms and ensemble classifiers on transaction data.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Random Forest</div></div></div>
       <div class="repo-card rv"><div class="repo-icon">🔐</div><div class="repo-name">RSA-Cryptosystem</div><div class="repo-desc">Pure Python RSA from scratch using number theory, Euler's theorem, and modular exponentiation.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Cryptography</div></div></div>
-      <div class="repo-card rv"><div class="repo-icon">📊</div><div class="repo-name">Algorithm-Visualizer</div><div class="repo-desc">Interactive visualisation of sorting, graph, and DP algorithms with real-time Big-O complexity analysis.</div><div class="repo-footer"><div class="repo-lang"><div class="rlang-dot" style="background:#3572A5"></div>Python</div><div class="repo-star">⭐ Algorithms</div></div></div>
     </div>
   </div>
 </section>
